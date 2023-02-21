@@ -10,6 +10,5 @@ data class AuthorDTO(
     val name: String,
     val surname: String,
     val age: Int,
-    val books: Set<BookDTO>,
 ) {
 }

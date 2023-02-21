@@ -1,6 +1,7 @@
 package datajpausecases.model
 
 import javax.persistence.CascadeType.PERSIST
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType.IDENTITY
@@ -15,10 +16,11 @@ import javax.persistence.ManyToOne
  **/
 @Entity(name = "book")
 data class Book(
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    val id: Long,
+    @Column(name = "book_name", nullable = false)
     val name: String,
+
+    @Column(name = "book_genre", nullable = false)
+    val genre: String,
 
     @ManyToOne(
         optional = false,
@@ -26,6 +28,9 @@ data class Book(
         cascade = [PERSIST],
     )
     @JoinColumn(name = "author_fk", nullable = false)
-    var author: Author
+    var author: Author?
 ) {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    val id: Long? = null
 }

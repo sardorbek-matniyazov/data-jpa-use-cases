@@ -9,7 +9,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize
  **/
 data class BookDTO(
     @JsonSerialize()
-    val id: Long,
+    val id: Long?,
     val name: String,
+    val genre: String,
     val author: AuthorDTO
 )

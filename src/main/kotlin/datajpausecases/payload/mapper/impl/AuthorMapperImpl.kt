@@ -18,7 +18,6 @@ class AuthorMapperImpl : AuthorMapper {
             name = author.name,
             surname = author.surname,
             age = author.age,
-            books = author.books.map { book -> BookMapperImpl().toBookDto(book) }.toSet()
         )
     }
 

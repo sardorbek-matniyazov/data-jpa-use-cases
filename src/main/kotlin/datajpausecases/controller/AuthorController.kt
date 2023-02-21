@@ -1,10 +1,8 @@
 package datajpausecases.controller
 
-import datajpausecases.payload.OwnResponse
 import datajpausecases.payload.request.AuthorRequest
 import datajpausecases.service.AuthorService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

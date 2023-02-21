@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.CascadeType.ALL
 import javax.persistence.FetchType.LAZY
 import javax.persistence.GenerationType.IDENTITY
+import javax.persistence.OrderColumn
 import javax.persistence.Table
 
 /**
@@ -36,10 +37,25 @@ data class Author(
         orphanRemoval = true,
         mappedBy = "author"
     )
+    @OrderColumn(name = "book_order")
     val books: MutableSet<Book> = mutableSetOf()
 
     constructor(name: String, surname: String, age: Int, book: Book) : this(name, surname, age) {
         book.author = this
         this.books.add(book)
+    }
+
+    fun addBook(book: Book) {
+        book.author = this
+        this.books.add(book)
+    }
+
+    fun removeBook(book: Book) {
+        book.author = null
+        this.books.remove(book)
+    }
+
+    fun removeBookWithId(bookId: Long) {
+        this.books.removeIf { it.id == bookId }
     }
 }

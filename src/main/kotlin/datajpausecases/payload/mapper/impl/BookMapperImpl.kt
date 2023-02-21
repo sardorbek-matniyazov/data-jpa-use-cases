@@ -15,7 +15,8 @@ class BookMapperImpl: BookMapper {
     override fun toBookDto(book: Book): BookDTO = BookDTO(
             id = book.id,
             name = book.name,
-            author = AuthorMapperImpl().toAuthorDto(book.author)
+            genre = book.genre,
+            author = AuthorMapperImpl().toAuthorDto(book.author!!)
         )
 
     override fun toBookListDto(books: List<Book>): List<BookDTO> = books.map { book -> toBookDto(book) }
