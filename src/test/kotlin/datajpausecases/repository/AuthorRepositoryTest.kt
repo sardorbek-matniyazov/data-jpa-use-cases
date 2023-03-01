@@ -15,7 +15,7 @@ import javax.sql.DataSource
  * @mailto :  sardorbekmatniyazov03@gmail.com
  * @created : 01 Mar 2023
  **/
-@DataJpaTest
+@DataJpaTest(showSql = true)
 class AuthorRepositoryTest {
 
     @Autowired
