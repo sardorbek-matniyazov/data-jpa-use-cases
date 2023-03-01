@@ -31,6 +31,11 @@ dependencies {
     // mapstruct
     implementation("org.mapstruct:mapstruct:1.5.3.Final")
 
+    // testing
+    testImplementation ("org.testcontainers:junit-jupiter:1.17.6")
+    testImplementation ("org.testcontainers:postgresql:1.17.6")
+    testImplementation ("com.h2database:h2")
+
     annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
 }
 
